@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIA - Artificial Worlds</title>
+    <link rel="stylesheet" href="styles.css">    
+</head>
+<body>
+    <Header name="header" id="header"> 
+        <h1> MAIA </h1>
+    </Header>
+    <div class="dropdown">
+        <button name="bt1" onclick="menu1()" class="dropbtn">Environment</button>
+        <div id="menu1" name="menu1" class="dropdown-content">
+            <a href="#library">Library</a>
+            <a href="#create">Create</a>
+            <a href="#about">About</a>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button name="bt2" onclick="menu2()" class="dropbtn">Agente</button>
+        <div id="menu2" name="menu2" class="dropdown-content">
+            <a href="#Wumpus">Wumpus</a>
+            <a href="#Robot">Robot</a>
+            <a href="#Butterfly">Butterfly</a>
+        </div>
+    </div> 
+    <div id='readout'></div>
+    <canvas id='canvas' width='1000' height='440'>
+        Canvas not supported
+    </canvas>
+    <footer name="footer" id="footer">
+        All rights reserved
+    </footer>
+    <script src="maiaScripts.js"></script>
+</body>
+</html>

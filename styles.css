@@ -1,0 +1,78 @@
+body {
+    /* background-color: rgb(64, 224, 24); */
+    font: normal 10pt Arial;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    margin-top:0;
+    padding-top: 0;
+}
+header{
+    font: normal 14pt Arial;
+    background-image: url("/images/bannerMaia.png");
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+}
+section{
+    background-image: url("/images/worldmap.png");
+}
+footer{
+    background-image: url("/images/bannerMaia.png");
+    font: normal 10pt Arial;
+    text-align: center;
+}
+h1 {
+    color: rgb(202, 191, 86);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+p {
+    color: red;
+}
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #757b80;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+} 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown a:hover {background-color: #ddd;}
+  
+.show {display: block;}
+
+canvas {
+    /* position: absolute; */
+    left: 0px;
+    top: 0px;
+    margin: 20px;
+    background: #ffffff;
+    border: thin inset rgba(100,150,230,0.5);
+    cursor: pointer;
+ }
+
+ readout {
+    margin-top: 10px;
+    margin-left: 15px;
+    color:# blue;
+ }
