@@ -1,122 +1,69 @@
-function environment(){
-    var result = app.popUpMenu("opt1", "opt2", "opt3");
-    this.getField("Text1").value=result;
-}
+// globals
+var nGrid = 4
+var tEnvironment
+
+// function
+
 function agent(){
     alert("Creating a agente")
 }
-function menu(){
-    document.getElementById("myDropdown").classList.toggle("show");
+function setEnvironment(){
+    modal.style.display = "block"
 }
-/* When the user clicks on the button, 
-  toggle between hiding and showing the dropdown content */
-function menu1() {
-    document.getElementById("menu1").classList.toggle("show");
+function setAgent(){
+    alert("fodeu")
 }
-function menu2() {
-    document.getElementById("menu2").classList.toggle("show");
+function about(){
+    alert("fodeu")
 }
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {    
-    elem = event.target
-    var dropdowns
-    if(elem.name=="bt1"){
-        dropdowns = document.getElementsByName("menu2")
-    } else if (elem.name=="bt2"){
-        dropdowns = document.getElementsByName("menu1")
-    } else {
-        // if (!elem.matches('.dropbtn')) {
-        // var dropdowns = document.getElementsByClassName("dropdown-content");
-        dropdowns = document.getElementsByClassName("dropdown-content")
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+function processaForm() {
+    var x = document.getElementById("frm1");
+    nGrid = x.elements[0].value
+    tEnvironment = x.elements[1].value
+}
+class Environment{
+    constructor(){
+        //alert("Default grid is "+nGrid)
+        this.canvas = document.getElementById("canvas")
+        this.draw()
+    };
+    draw() {
+        // draw the environment
+        var height = this.canvas.height
+        var width = this.canvas.width
+        var steph = Number.parseInt(width/nGrid)
+        var stepv = Number.parseInt(height/nGrid)
+        if (this.canvas.getContext) {
+            var ctx = this.canvas.getContext("2d");
+            for (var i = 0; i <= height; i += stepv) {
+                ctx.moveTo(0, i)
+                ctx.lineTo(canvas.width, i)
+                ctx.stroke()
+            }
+            for (var i = 0; i <= width; i += steph){
+                ctx.moveTo(i, 0)
+                ctx.lineTo(i,canvas.height)
+                ctx.stroke()
+            }
+        } 
     }
-    for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i]
-        if (openDropdown == null) { return }
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-    }
 }
+var env = new Environment()
 
-var canvas = document.getElementById('canvas')
-var context = canvas.getContext("2d")
-
-
-/* continuar a partir daqui
-var spritesheet = new Image();
-
-// Functions..........................................................
-
-function windowToCanvas(canvas, x, y) {
-   var bbox = canvas.getBoundingClientRect();
-   return { x: x - bbox.left * (canvas.width  / bbox.width),
-            y: y - bbox.top  * (canvas.height / bbox.height)
-          };
-}
-
-function drawBackground() {
-   var VERTICAL_LINE_SPACING = 12,
-       i = context.canvas.height;
-
-   context.clearRect(0,0,canvas.width,canvas.height);
-   context.strokeStyle = 'lightgray';
-   context.lineWidth = 0.5;
-
-   while(i > VERTICAL_LINE_SPACING*4) {
-      context.beginPath();
-      context.moveTo(0, i);
-      context.lineTo(context.canvas.width, i);
-      context.stroke();
-      i -= VERTICAL_LINE_SPACING;
-   }
-}
-
-function drawSpritesheet() {
-   context.drawImage(spritesheet, 0, 0);
-}
-
-function drawGuidelines(x, y) {
-   context.strokeStyle = 'rgba(0,0,230,0.8)';
-   context.lineWidth = 0.5;
-   drawVerticalLine(x);
-   drawHorizontalLine(y);
-}
-
-function updateReadout(x, y) {
-   readout.innerText = '(' + x.toFixed(0) + ', ' + y.toFixed(0) + ')';
-}
-
-function drawHorizontalLine (y) {
-   context.beginPath();
-   context.moveTo(0,y + 0.5);
-   context.lineTo(context.canvas.width, y + 0.5);
-   context.stroke();
-}
-
-function drawVerticalLine (x) {
-   context.beginPath();
-   context.moveTo(x + 0.5, 0);
-   context.lineTo(x + 0.5, context.canvas.height);
-   context.stroke();
-}
-
-// Event handlers.....................................................
-
-canvas.onmousemove = function (e) {
-   var loc = windowToCanvas(canvas, e.clientX, e.clientY);
-
-   drawBackground();
-   drawSpritesheet();
-   drawGuidelines(loc.x, loc.y);
-};
-
-// Initialization.....................................................
-
-spritesheet.src = 'running-sprite-sheet.png';
-spritesheet.onload = function(e) {
-   drawSpritesheet();
-};
-
-drawBackground();
-
-*/

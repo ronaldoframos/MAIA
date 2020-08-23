@@ -8,30 +8,54 @@
 </head>
 <body>
     <Header name="header" id="header"> 
+        <!-- Menu principal -->
+    <div class="topnav">
+        <a class="active" href="#" onclick="setEnvironment()">Environment</a>
+        <a href="#" onclick="setAgent()">Agent</a>
+        <a href="#" onclick="about()">About</a>
         <h1> MAIA </h1>
+      </div>
+    <!-- Fim do menu principal -->  
+   
     </Header>
-    <div class="dropdown">
-        <button name="bt1" onclick="menu1()" class="dropbtn">Environment</button>
-        <div id="menu1" name="menu1" class="dropdown-content">
-            <a href="#library">Library</a>
-            <a href="#create">Create</a>
-            <a href="#about">About</a>
+    <!-- Dialogo modal -->
+ 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="frm1" action="#">
+                <label for="envs">  <strong>Setting </strong> </label><br><br>
+                Grid cells:<br>
+                <input type="number" name="ngrid" value="4" style="width:10%"><br><br>
+                Environment<br>
+                <select id="envs" name="envs" size="5" style="width:11%">
+                  <option value="nqueens">nQueens Problem</option>
+                  <option value="puzzle">Sliding Puzzle</option>
+                  <option value="wumpus">Wumpus World</option>
+                  <option value="other">Other</option>
+                </select><br><br>
+                <input type="submit" style="width:10%" onclick="processaForm()">
+              </form>
         </div>
-    </div> 
-    <div class="dropdown">
-        <button name="bt2" onclick="menu2()" class="dropbtn">Agente</button>
-        <div id="menu2" name="menu2" class="dropdown-content">
-            <a href="#Wumpus">Wumpus</a>
-            <a href="#Robot">Robot</a>
-            <a href="#Butterfly">Butterfly</a>
-        </div>
-    </div> 
+
+    </div>
+
+    <!-- Fim do dialogo modal -->
+
+
     <div id='readout'></div>
-    <canvas id='canvas' width='1000' height='440'>
+    <canvas id='canvas' name="canvas" class ="canvas" width='1000' height='440'>
         Canvas not supported
     </canvas>
+
+    
+
     <footer name="footer" id="footer">
         All rights reserved
+        <p id="demo"></p>
     </footer>
     <script src="maiaScripts.js"></script>
 </body>
