@@ -1,36 +1,11 @@
-
 // globals
-
 var nGrid = 4
 var tEnvironment = "other"
-
 // classes
-
-class GlobalObserver{
- // inserir uma lista de variavais observadas pelo sistema
-    registerVariabel(variable){
-        this.variable = variable
-    }
-    // inserir uma lista de observadores
-    registerObservers(object){
-
-    }
-    setValue(variable,value){
-
-    }
-    getValue(variable,value){
-
-    }
-    // inserir uma rotina de modificacao de valores das variaveis globais e sinalizacao dos ibservadores
-    notifyAll(){
-
-    }
-
-}
-
 class Environment{
     constructor(){
         this.canvas = document.getElementById("canvas")
+        //var nGrid = Number({{ngrid|tojson}})
     }
     draw() {
         // draw the environment
@@ -53,7 +28,11 @@ class Environment{
         } 
     }
 }
-
-// functions event handlers
 e = new Environment
 e.draw()
+
+// functions event handlers
+document.getElementById("startbutton").addEventListener("click",start)
+function start() {
+  alert("Hello World!");
+}

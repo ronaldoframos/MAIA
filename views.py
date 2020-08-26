@@ -10,7 +10,10 @@ def home():
 def maiaStart():
     env = request.args.get('environment')
     ngrid = request.args.get('grid')
-    return render_template("maiastart.html",environment=env, ngrid=ngrid)
+    heuristic = request.args.get('heuristic')
+    interactive = request.args.get('interactive')
+    return render_template("maiastart.html",environment=env, ngrid=ngrid, \
+        heuristic=heuristic,interactive=interactive)
 
 @app.route("/agent")
 def agent():

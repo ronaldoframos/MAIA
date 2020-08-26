@@ -3,10 +3,24 @@
 MAIA - Artificial Worlds
 {% endblock %}
 {% block content %}
-<div id="env" name ="env"> Environment: {{environment}} Grid: {{ngrid}}  </div> 
-<div id='readout'></div>
-<canvas id='canvas' name="canvas" class ="canvas" width='1000' height='440'>
-    Canvas not supported
-</canvas>
-
+<div id="env" name ="env"> Env: <strong> {{environment}} </strong> Grid: <strong> {{ngrid}} </strong>  
+    Heuristic: <strong>  {{heuristic}} </strong> Interactive: <strong> {{interactive}} </strong>
+</div> 
+<table>
+    <tr>
+        <td>
+            <div id='readout'></div>
+            <canvas id='canvas' name="canvas" class ="canvas" width='500' height='500'>
+                Canvas not supported
+            </canvas>
+        </td>
+        <td>
+            <button id="startbutton" name="startbutton"> RUN </button>
+            <button>Save</button>
+            <p> Operations:  </p>
+            <p> Elapsed Time: </p>
+            <br>
+        </td> 
+    </tr>
+</table>
 {% endblock %}

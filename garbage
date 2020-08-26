@@ -61,3 +61,25 @@ window.onclick = function(event) {
     <h1> MAIA </h1>
   </div>
 <!-- Fim do menu principal --> 
+// creating an observer
+class GlobalObserver{
+ // inserir uma lista de variavais observadas pelo sistema
+    registerVariabel(variable){
+        this.variable = variable
+    }
+    // inserir uma lista de observadores
+    registerObservers(object){
+
+    }
+    setValue(variable,value){
+
+    }
+    getValue(variable,value){
+
+    }
+    // inserir uma rotina de modificacao de valores das variaveis globais e sinalizacao dos ibservadores
+    notifyAll(){
+
+    }
+
+}
