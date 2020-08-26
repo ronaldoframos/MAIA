@@ -1,0 +1,63 @@
+Fazendo um diálogo modal - retirado de maiastart
+<!-- Dialogo modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" onclick="clickspan()">&times;</span>
+        <form id="frm1" action="#">
+            <label for="envs">  <strong>Setting </strong> </label><br><br>
+            Grid cells:<br>
+            <input type="number" name="ngrid" value="4" style="width:10%"><br><br>
+            Environment<br>
+            <select id="envs" name="envs" size="5" style="width:11%">
+              <option value="nqueens">nQueens Problem</option>
+              <option value="puzzle">Sliding Puzzle</option>
+              <option value="wumpus">Wumpus World</option>
+              <option value="other">Other</option>
+            </select><br><br>
+            <input type="submit" style="width:10%" onclick="processaForm()">
+          </form>
+    </div>
+</div>
+<!-- Fim do dialogo modal -->
+function setEnvironment(){
+    var modal = document.getElementById("myModal")
+    modal.style.display = "block"
+}
+function agent(){
+    alert("Creating a agente")
+}
+
+function setAgent(){
+    alert("fodeu")
+}
+function about(){
+    alert("fodeu")
+}
+function processaForm() {
+    var x = document.getElementById("frm1")
+    window['nGrid'] = x.elements[0].value
+    window['tEnvironment'] = x.elements[1].value 
+    alert(" dom "+nGrid+tEnvironment)
+}    
+function clickspan() {
+    var modal = document.getElementById("myModal")
+    //var span = document.getElementsByClassName("close")[0]
+    modal.style.display = "none"
+}
+// When the user clicks anywhere outside of the modal, close it
+// eventos de cliques globais
+window.onclick = function(event) {
+  if (event.target == modal) {
+    var modal = document.getElementById("myModal")  
+    modal.style.display = "none"
+  }
+}
+<!-- Menu principal -->
+<div class="topnav">
+    <a class="active" href="#" onclick="setEnvironment()">Environment</a>
+    <a href="#" onclick="setAgent()">Agent</a>
+    <a href="#" onclick="about()">About</a>
+    <h1> MAIA </h1>
+  </div>
+<!-- Fim do menu principal --> 

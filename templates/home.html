@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<form form action="/maiastart" method="GET">
+    <label>Choose a environment:</label>
+    <select id="environment" name="environment">
+        <option value="nqueens">nQueens</option>
+        <option value="wumpus">Wumpus</option>
+        <option value="puzzle">Sliding Puzzle</option>
+        <option value="other">Other</option>
+    </select>
+    Grid Division: 
+    <input type="number" id="grid" name="grid" value="4">    
+    <input type="submit" value="Submit">
+</form>
+  
+{% endblock %}

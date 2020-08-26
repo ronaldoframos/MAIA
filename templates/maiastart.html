@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}
+MAIA - Artificial Worlds
+{% endblock %}
+{% block content %}
+<div id="env" name ="env"> Environment: {{environment}} Grid: {{ngrid}}  </div> 
+<div id='readout'></div>
+<canvas id='canvas' name="canvas" class ="canvas" width='1000' height='440'>
+    Canvas not supported
+</canvas>
+
+{% endblock %}
