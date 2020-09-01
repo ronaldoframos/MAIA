@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request
-from . import app
+from MAIA import app
 
 @app.route("/")
 def home():
