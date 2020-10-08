@@ -6,23 +6,26 @@ Home
 <form form action="/maiastart" method="GET">
     <label>Choose a environment:</label>
     <select id="environment" name="environment">
+        <option value="covid">Covid-19</option>
         <option value="nqueens">nQueens</option>
         <option value="wumpus">Wumpus</option>
         <option value="puzzle">Sliding Puzzle</option>
         <option value="other">Other</option>
     </select>
     Grid Division: 
-    <input type="number" id="grid" name="grid" value="4">    
+    <input type="number" id="grid" name="grid" value="1">    
     <label>Choose a heuristic:</label>
     <select id="heuristic" name="heuristic">
+        <option value="Brownian_Motion">Brownian Motion</option>
         <option value="dfs">DFS</option>
         <option value="bfs">BFS</option>
         <option value="astar">A*</option>
         <option value="anneal">Simulated Annealing</option>
-        <option value="ga">Genetic Algorithm</option>
+        <option value="ga">Genetic Algorithm</option> 
     </select>
+    Number of initial Agents/Pieces: 
+    <input type="number" id="nagents" name="nagents" value="1"> 
     <input type="checkbox" id="interactive" name="interactive">interactive</input>
     <input type="submit" value="Submit">
 </form>
-  
 {% endblock %}

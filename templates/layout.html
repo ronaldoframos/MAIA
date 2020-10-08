@@ -16,7 +16,9 @@
             {% endblock %}
         </div> 
         <footer> 
-            <script src="{{ url_for('static', filename='js/maiaScripts.js') }}"></script>
+            {% assets 'main_js' %}
+            <script src="{{ ASSET_URL }}"></script>
+            {% endassets %}
             <!-- <p>&copy; 2018 All Rights Reserved</p> -->
         </footer>
         </body>  

@@ -1,10 +1,15 @@
+<!--Scripts dessa página -->
+<script>
+    <script src="{{ url_for('static', filename='js/maiastartcripts.js') }}" />
+</script>
 {% extends "layout.html" %}
 {% block title %}
 MAIA - Artificial Worlds
 {% endblock %}
 {% block content %}
-<div id="env" name="env">Env: <strong>{{environment}}</strong> Grid: <strong>{{ngrid}}</strong>
-    Heuristic: <strong>{{heuristic}}</strong> Interactive: <strong>{{interactive}}</strong>
+<div id="env" name="env" > Env: <strong>{{environment}}</strong> Grid: <strong>{{ngrid}}</strong>
+    Heuristic: <strong>{{heuristic}}</strong> Number_of_Agents: <strong>{{nagents}} 
+    </strong> Interactive: <strong>{{interactive}}</strong>
 </div> 
 <table>
     <tr>
@@ -15,12 +20,18 @@ MAIA - Artificial Worlds
             </canvas>
         </td>
         <td>
-            <button id="startbutton" name="startbutton"> RUN </button>
+            <button id="runbutton" name="runbuttom" onclick="inicio()"> RUN </button>
             <button>Save</button>
             <p> Operations:  </p>
             <p> Elapsed Time: </p>
             <br>
         </td> 
+        <td>
+            <div id='outputspace'></div>
+            <canvas id='outgraph' name="outgraph" class ="canvas" width='500' height='500'>
+                Canvas not supported
+            </canvas>
+        </td>
     </tr>
 </table>
 {% endblock %}

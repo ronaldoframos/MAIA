@@ -1,6 +1,11 @@
 from datetime import datetime
 from flask import Flask, render_template, request
+from flask_assets import Bundle, Environment
 from MAIA import app
+
+js = Bundle('js/classes.js','js/funcoes.js','js/brown.js',output='js/main.js')
+assets = Environment(app)
+assets.register('main_js',js)
 
 @app.route("/")
 def home():
@@ -12,8 +17,9 @@ def maiaStart():
     ngrid = request.args.get('grid')
     heuristic = request.args.get('heuristic')
     interactive = request.args.get('interactive')
+    nagents = request.args.get('nagents')
     return render_template("maiastart.html",environment=env, ngrid=ngrid, \
-        heuristic=heuristic,interactive=interactive)
+        heuristic=heuristic,nagents=nagents,interactive=interactive)
 
 @app.route("/agent")
 def agent():
