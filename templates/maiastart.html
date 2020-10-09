@@ -21,14 +21,15 @@ MAIA - Artificial Worlds
         </td>
         <td>
             <button id="runbutton" name="runbuttom" onclick="inicio()"> RUN </button>
-            <button>Save</button>
+            <button id="stopbutton" name="stopbuttom" onclick="fim()"> STOP </button>
+            <button id="save" name="save" onclick="save()">Save</button>
             <p> Operations:  </p>
-            <p> Elapsed Time: </p>
+            <p id="tempodecorrido" name="tempodecorrido"> Elapsed Time: </p>
             <br>
         </td> 
         <td>
             <div id='outputspace'></div>
-            <canvas id='outgraph' name="outgraph" class ="canvas" width='500' height='500'>
+            <canvas id='outgraph' name="outgraph" class ="canvas" width='850' height='500'>
                 Canvas not supported
             </canvas>
         </td>

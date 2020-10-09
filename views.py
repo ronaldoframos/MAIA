@@ -3,7 +3,8 @@ from flask import Flask, render_template, request
 from flask_assets import Bundle, Environment
 from MAIA import app
 
-js = Bundle('js/classes.js','js/funcoes.js','js/brown.js',output='js/main.js')
+js = Bundle('../node_modules/chart.js/dist/Chart.js','js/_01varglobais.js','js/_02ambiente.js','js/_03agente.js','js/_04saida.js',
+    'js/_05funcoes.js',output='js/main.js')
 assets = Environment(app)
 assets.register('main_js',js)
 
@@ -23,7 +24,7 @@ def maiaStart():
 
 @app.route("/agent")
 def agent():
-    pass
+    return "<h1> Working on this</h1>"
 
 @app.route("/about/")
 def about():
