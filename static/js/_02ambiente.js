@@ -8,20 +8,16 @@ class Environment{
         document['heuristics'] = tokens[5]
         document['interactive'] = tokens[9]
         document['num_agents'] = Number(tokens[7])
-        //criando os agentes
-        var numero_agentes_contaminados = Math.ceil( document['num_agents'] * taxa_inicial_contaminados )
-        var numero_agentes_sadios = document['num_agents']- numero_agentes_contaminados
-        for (var i = 0; i < numero_agentes_sadios;i++){
-            lista_agentes_sadios.push(new Agent_Covid)
+        total_populacao = document['num_agents']
+        for (var i = 0; i < total_populacao;i++){
+            lista_agentes.push(new Agent_Covid)
+            quantidade_sadios++
         }
-        // contaminados
-        for(var i = 0; i<=numero_agentes_contaminados;i++){
-            lista_agentes_contaminados.push(new Agent_Covid)
+        // contaminar alguns
+        for (var i = 0; i < Math.ceil( total_populacao * taxa_inicial_contaminados );  i++){
+            lista_agentes[i].set_contaminado()
         }
-        for(var i = 0; i<=numero_agentes_contaminados;i++){
-            lista_agentes_contaminados[i].contaminado=true
-        }
-        
+        total_populacao = quantidade_sadios + quantidade_contaminados
     }
     update(){
         var height = this.canvas.height
@@ -30,11 +26,8 @@ class Environment{
             var ctx = this.canvas.getContext("2d")
             ctx.clearRect(2,2,height-4,width-4)
         }
-        for(var i=0;i<lista_agentes_sadios.length;i++){
-            lista_agentes_sadios[i].update()
-        }
-        for(var i=0;i<lista_agentes_contaminados.length;i++){
-            lista_agentes_contaminados[i].update()
+        for(var i=0;i<lista_agentes.length;i++){
+            lista_agentes[i].update()
         }
     }
     draw(ngrid) {
@@ -59,13 +52,13 @@ class Environment{
             }
         }
         //  draw agents
-        for(var i = 0; i < lista_agentes_sadios.length;i++){
+        for(var i = 0; i < total_populacao;i++){
             //console.log("desenhando agente"+i)
-            lista_agentes_sadios[i].draw(this.canvas)
-        }
-        for(var i = 0; i < lista_agentes_contaminados.length;i++){
-            //console.log("desenhando agente"+i)
-            lista_agentes_contaminados[i].draw(this.canvas)
+            try {
+                lista_agentes[i].draw(this.canvas)
+            } catch (error) {
+                continue
+            }
         }
     }
 }

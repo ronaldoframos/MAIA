@@ -1,38 +1,63 @@
 function contamina(){
-    console.log('agentes contaminados '+lista_agentes_contaminados.length)
-    console.log('agentes sadios '+ lista_agentes_sadios.length )
-    var paraContaminar = []
-    for(var i=0;i<lista_agentes_contaminados.length;i++){
-        for(var j = 0; j< lista_agentes_sadios.length;j++){
-            d = distancia(lista_agentes_contaminados[i],lista_agentes_sadios[j])
+    lista_agentes = lista_agentes.filter(function( element ){
+        return element !== undefined;
+    });
+    var contaminados = lista_agentes.filter(function(element){return element.estado ==CONTAMINADO});
+    console.log('contaminadod '+contaminados)
+    var sadios = lista_agentes.filter(function(element){return element.estado==SADIO});
+    console.log('sadios '+sadios)
+    for(var i=0;i<contaminados.length;i++){
+        for(var j = 0; j< sadios.length;j++){
+            d = distancia(contaminados[i],sadios[j])
             if ( d < distancia_contaminacao ){
-                paraContaminar.push(j)
+                sadios[j].set_contaminado()
+                quantidade_contaminados++
+                quantidade_sadios--
             }
         }
+        
     }
-    paraContaminar.forEach(transfere)
 }
-function transfere(elemento,indice,matriz){
-    console.log('tranferir o elemento na posicao '+elemento)
-    lista_agentes_sadios[elemento].contaminado=true
-    lista_agentes_contaminados.push(lista_agentes_sadios[elemento])
-    lista_agentes_sadios.splice(elemento,1)
+function imuniza(){
+    for(var i=0;i<total_populacao;i++){
+        try {
+            lista_agentes[i].verificaImunidade() 
+        } catch (error) {
+            continue
+        }
+    } 
 }
-function descontamina(){
-
-}   
 function distancia(a,b){
     return Math.sqrt((a.X-b.X)**2 + (a.Y-b.Y)**2)
+}
+function conta_contaminados(){
+    var conc = 0
+    lista_agentes = lista_agentes.filter(function( element ) {
+        return element !== undefined;
+    });
+    var conc=0
+    for(var i=0;i<total_populacao;i++) {
+        if(lista_agentes[i].estado==CONTAMINADO){
+            conc++
+        }
+    }
+    quantidade_contaminados = conc
+    return conc
 }
 function update(){
     tempo_simulacao+=tempo_refresh
     contamina()
+    imuniza()
+    c = conta_contaminados()
+    lista_tempos.push(tempo_simulacao)
+    lista_casos.push(c)
     ambiente.update()
     ambiente.draw(nGrid)
     document.getElementById("tempodecorrido").innerHTML ="Elapsed Time:"+tempo_simulacao
-    lista_tempos.push(tempo_simulacao)
-    lista_casos.push(lista_agentes_contaminados.length)
     saida.draw(1)
+    if((quantidade_sadios == 0) && (quantidade_contaminados  < taxa_residual * total_populacao)){
+         fim()
+    }
 }
 // scripts da pagina maia start
 function inicio(){
