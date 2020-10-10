@@ -17,7 +17,7 @@ class Output{
                 data: {
                     labels: lista_tempos,
                     datasets: [{
-                        label: 'Curva Epidêmica Simulada',
+                        label: 'Casos novos',
                         data: lista_casos,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.9)',
@@ -45,6 +45,11 @@ class Output{
                                 beginAtZero: true
                             }
                         }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Curva Epidêmica Simulada',
+                        fontSize: 18,
                     }
                 }
             });
