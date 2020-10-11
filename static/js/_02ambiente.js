@@ -52,13 +52,9 @@ class Environment{
             }
         }
         //  draw agents
-        for(var i = 0; i < total_populacao;i++){
-            //console.log("desenhando agente"+i)
-            try {
-                lista_agentes[i].draw(this.canvas)
-            } catch (error) {
-                continue
-            }
+        var l = limpa_lista()
+        for(var i = 0; i < l.length;i++){
+            l[i].draw(this.canvas)
         }
     }
 }

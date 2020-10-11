@@ -17,7 +17,7 @@ class Output{
                 data: {
                     labels: lista_tempos,
                     datasets: [{
-                        label: 'Casos novos',
+                        label: 'Contaminados (Doentes)',
                         data: lista_casos,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.9)',
@@ -50,7 +50,33 @@ class Output{
                         display: true,
                         text: 'Curva Epidêmica Simulada',
                         fontSize: 18,
-                    }
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontColor: 'rgb(255, 99, 132)'
+                        },
+                        position: 'top',
+                        align : 'end',
+                    },
+                    scales: {
+                        yAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            fontSize: 18,
+                            fontStyle: "bold",
+                            labelString: 'Número de Contaminados(Doentes)'
+                          }
+                        }],
+                        xAxes: [{
+                          scaleLabel: {
+                            display: true,
+                            fontSize: 18,
+                            fontStyle: "bold",
+                            labelString: 'Tempo(dias)'
+                          }
+                        }],
+                      }
                 }
             });
         } 
